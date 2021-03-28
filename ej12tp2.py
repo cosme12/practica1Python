@@ -7,7 +7,7 @@ def convertir_mapa_en_matriz(b_lleno):
     return b_lleno
 
 
-def rearmar_strings_originales(b_lleno):
+def convertir_mapa_en_strings(b_lleno):
     """ Vuelve a convertir la matriz en filas de strings
     """
     fila = ""
@@ -36,13 +36,15 @@ def incrementar_minas(b_lleno, posX, posY):
     return b_lleno
 
 
+def imprimir_resultados(b_lleno):
+    """ Imprime los resultados del buscaminas en formate del juego
+    """
+    for fila in b_lleno:
+        print(fila)
+
+
+
 # programa principal
-buscamina_vacio = [
-'-*-*-',
-'--*--',
-'----*',
-'*----',
-]
 
 buscamina_lleno = [
 '-*-*-',
@@ -58,6 +60,7 @@ for i in range(len(buscamina_lleno)):  # cantidad de filas
         if buscamina_lleno[i][j] == "*":  # si encuentra una mina
             buscamina_lleno = incrementar_minas(buscamina_lleno, i, j)
 
-buscamina_lleno = rearmar_strings_originales(buscamina_lleno)
+buscamina_lleno = convertir_mapa_en_strings(buscamina_lleno)
 
-print(buscamina_lleno)
+
+imprimir_resultados(buscamina_lleno)
